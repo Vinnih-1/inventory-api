@@ -1,4 +1,6 @@
 name: inventory-api
 version: 1.0
-main: com.henryfabio.minecraft.inventoryapi.tests.Main
+main: com.henryfabio.minecraft.inventoryapi.bungee.Main
 authors: [ Henry_Fabio ]
+
+depends: ['protocolize-plugin']
