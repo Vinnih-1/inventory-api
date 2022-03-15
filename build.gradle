@@ -1,6 +1,5 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
-apply plugin: 'maven'
 apply plugin: 'java'
 apply plugin: 'java-library'
 apply plugin: 'com.github.johnrengelman.shadow'
@@ -14,40 +13,17 @@ targetCompatibility = '1.8'
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
-install {
-    repositories {
-        mavenInstaller {
-            pom.version = '0.0.1-maven-SNAPSHOT'
-            pom.groupId = 'com.baeldung.sample'
-            pom.artifactId = 'gradle-maven-converter'
-        }
-    }
-}
-
 repositories {
     mavenCentral()
 
-    maven { url = 'https://mvn.exceptionflug.de/repository/exceptionflug-public/' }
-    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url = 'https://oss.sonatype.org/content/groups/public/' }
 }
 
 dependencies {
-    def bungee = 'net.md-5:bungeecord-api:1.17-R0.1-SNAPSHOT'
-    def ptclapi = 'de.exceptionflug:protocolize-api:1.7.1-SNAPSHOT'
-    def ptclitem = 'de.exceptionflug:protocolize-items:1.7.1-SNAPSHOT'
-    def ptclinventory = 'de.exceptionflug:protocolize-inventory:1.7.1-SNAPSHOT'
-    def ptclworld = 'de.exceptionflug:protocolize-world:1.7.1-SNAPSHOT'
-
-    compileOnly bungee
-    testCompileOnly bungee
-    compileOnly ptclapi
-    testCompileOnly ptclapi
-    compileOnly ptclitem
-    testCompileOnly ptclitem
-    compileOnly ptclinventory
-    testCompileOnly ptclinventory
-    compileOnly ptclworld
-    testCompileOnly ptclworld
+    def spigot = 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
+    compileOnly spigot
+    testCompileOnly spigot
 
     api 'org.jetbrains:annotations:22.0.0'
 
